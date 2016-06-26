@@ -12,7 +12,9 @@ $request=mysqli_query($db,$sql);
 echo "Hello";
 while($line = mysqli_fetch_array($request)){
 	$id = isset($ligne2['id']) ? $ligne2['id'] : null;
+	echo "Hello id before ";
 	echo $id;
+	echo "Hello id after ";
 	session_start();
 	$_SESSION['login_user']=$myusername;
 	header("location: welcome.php");
@@ -24,6 +26,7 @@ $count=mysqli_num_rows($line);
 if($count!=1)
 {
 $error="Your Login Name or Password is invalid";
+}
 }
 ?>
 <form method="post">
