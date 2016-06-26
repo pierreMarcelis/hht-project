@@ -17,6 +17,8 @@ while($line = mysqli_fetch_array($request)){
 	echo "Hello id after ";
 	session_start();
 	$_SESSION['login_user']=$myusername;
+	
+	
 	header("location: welcome.php");
 
 }
