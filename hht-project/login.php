@@ -8,27 +8,25 @@ $myusername=mysqli_real_escape_string($db,$_POST['username']);
 $mypassword=mysqli_real_escape_string($db,$_POST['password']); 
 $passwordSecure=md5($mypassword);
 $sql="SELECT id FROM HHT_USERS where EMAIL= '$myusername'' and passcode='$mypassword'";
-$result=mysqli_query($db,$sql);
-$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-$active=$row['active'];
-$count=mysqli_num_rows($result);
+$request=mysqli_query($db,$sql);
+echo "Hello";
+while($line = mysqli_fetch_array($request)){
+	$id = isset($ligne2['id']) ? $ligne2['id'] : null;
+	echo $id;
+	session_start();
+	$_SESSION['login_user']=$myusername;
+	header("location: welcome.php");
 
-
-// If result matched $myusername and $mypassword, table row must be 1 row
-if($count==1)
-{
-session_register("myusername");
-$_SESSION['login_user']=$myusername;
-
-header("location: welcome.php");
 }
-else 
+$count=mysqli_num_rows($line);
+
+
+if($count!=1)
 {
 $error="Your Login Name or Password is invalid";
 }
-}
 ?>
-<form action="" method="post">
+<form method="post">
 <label>UserName :</label>
 <input type="text" name="username"/><br />
 <label>Password :</label>
