@@ -1,35 +1,38 @@
  <?php
 include("config.php");
 session_start();
+echo "Hello BEFORE POST";
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
 // username and password sent from Form
 $myusername=mysqli_real_escape_string($db,$_POST['username']); 
 $mypassword=mysqli_real_escape_string($db,$_POST['password']); 
 $passwordSecure=md5($mypassword);
-$sql="SELECT id FROM HHT_USERS where EMAIL= '$myusername'' and passcode='$mypassword'";
-$request=mysqli_query($db,$sql);
-echo "Hello";
-while($line = mysqli_fetch_array($request)){
-	$id = isset($ligne2['id']) ? $ligne2['id'] : null;
-	echo "Hello id before ";
-	echo $id;
-	echo "Hello id after ";
-	session_start();
-	$_SESSION['login_user']=$myusername;
+$sql="SELECT * FROM HHT_USERS where EMAIL= '$myusername' and PASSWORD='$mypassword'";
+
+echo "Hello BEFORE CALL SQL \n"; 
+echo $sql;
+$request=mysqli_query($db,$sql)  or die(mysqli_error($db));
+echo "Hello AFTER CALL SQL \n"; 
+$rows = mysql_num_rows($query) or die($query);
+echo "Result Size : ";
+echo $rows;
+if ($rows == 1) {
+	$_SESSION['login_user']=$username; // Initializing Session
 	
+	 $login_session = $row['EMAIL'];
+	  echo $row['EMAIL']; 
 	
-	header("location: welcome.php");
-
+   echo $login_session;
+	header("location: welcome.php"); // Redirecting To Other Page
+} else {
+	$error = "Username or Password is invalid";
 }
-$count=mysqli_num_rows($line);
-
-
-if($count!=1)
-{
-$error="Your Login Name or Password is invalid";
+echo "Hello BEFORE CLOSING CONNEXION";
+mysql_close($connection); // Closing Connection
 }
-}
+echo "Hello END";
+
 ?>
 <form method="post">
 <label>UserName :</label>
