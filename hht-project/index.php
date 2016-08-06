@@ -8,12 +8,12 @@ header("location: welcome.php");
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login Form in PHP with Session</title>
+<title>Login accessing to the HHT docume HHT documentnt applications.</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div id="main">
-<h1>PHP Login Session Example</h1>
+<h1>HHT Documents Login : </h1>
 <div id="login">
 <h2>Login Form</h2>
 <form action="login.php" method="post">
