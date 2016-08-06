@@ -11,7 +11,7 @@ ALTER TABLE HHT_ROLES ADD PRIMARY KEY(code);
 
 
 CREATE TABLE HHT_USERS (
-	ID BIGINT,
+	id BIGINT,
 	FIRST_NAME VARCHAR2(250),
 	LAST_NAME VARCHAR2(250),
 	EMAIL VARCHAR2(250),
@@ -19,14 +19,14 @@ CREATE TABLE HHT_USERS (
 	PASSWORD VARCHAR2(250) DEFAULT 'AZERTY'
 );
 
-ALTER TABLE HHT_USERS ADD PRIMARY KEY(ID);
+ALTER TABLE HHT_USERS ADD PRIMARY KEY(id);
 
 
 INSERT INTO HHT_ROLES(code, description) VALUES('A','Administrateurs');
 INSERT INTO HHT_ROLES(code, description) VALUES('M','Membres');
 INSERT INTO HHT_ROLES(code, description) VALUES('V','Visiteurs');
 
-INSERT INTO HHT_USERS(ID, FIRST_NAME, LAST_NAME , EMAIL , HHT_ROLE) VALUES (1, 'Daubresse', 'Olivier', 'oli.daubresse@gmail.com', 'A');
+INSERT INTO HHT_USERS(id, FIRST_NAME, LAST_NAME , EMAIL , HHT_ROLE) VALUES (1, 'Daubresse', 'Olivier', 'oli.daubresse@gmail.com', 'A');
 INSERT INTO HHT_USERS(ID, FIRST_NAME, LAST_NAME , EMAIL , HHT_ROLE) VALUES (2, 'Vandenbossche', 'Daniel', 'daniel.vandenbossche17@gmail.com', 'A');
 INSERT INTO HHT_USERS(ID, FIRST_NAME, LAST_NAME , EMAIL , HHT_ROLE) VALUES (3, 'Marcelis', 'Pierre', 'pierre.marcelis@gmail.com', 'M');
 INSERT INTO HHT_USERS(ID, FIRST_NAME, LAST_NAME , EMAIL , HHT_ROLE) VALUES (4, 'Champagne', 'Maurice', 'maurice.champagne@gmail.com', 'A');

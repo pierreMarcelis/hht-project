@@ -4,6 +4,13 @@ include('login.php'); // Includes Login Script
 if(isset($_SESSION['login_user'])){
 header("location: welcome.php");
 }
+
+include("class.login.php");
+$log = new logmein();
+$log->encrypt = true; //set encryption
+//parameters here are (form name, form id and form action)
+$log->loginform("loginformname", "loginformid", "form_action.php");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +20,7 @@ header("location: welcome.php");
 </head>
 <body>
 <div id="main">
-<h1>HHT Documents Login : </h1>
+<h1>HHT Documents Login Session Example</h1>
 <div id="login">
 <h2>Login Form</h2>
 <form action="login.php" method="post">
