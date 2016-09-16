@@ -1,8 +1,16 @@
-<?php
-require_once('documents_page.php');
-do_html_header('');
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Humanity Help Team login page</title>
+            <link rel="stylesheet" type="text/css" href="style.css"
+        </head>
+        <body>
+            <div id="formLogin">
+                <form action="loginProcess.php">
 
-display_site_info();
-display_login_form();
-do_html_footer();
-?>
+                </form>
+
+            </div>
+
+        </body>
+</html>
