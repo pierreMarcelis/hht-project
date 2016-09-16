@@ -6,8 +6,18 @@
         </head>
         <body>
             <div id="formLogin">
-                <form action="loginProcess.php">
-
+                <form action="loginProcess.php" method="POST">
+                    <p>
+                        <label>Username :</label>
+                        <input type="text" id="email" name="email"/>
+                    </p>
+                    <p>
+                        <label>Password  :</label>
+                        <input type="password" id="password" name="password"/>
+                    </p>
+                    <p>
+                        <input type="submit" id="btn" value="Login" />
+                    </p>
                 </form>
 
             </div>
