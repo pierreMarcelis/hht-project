@@ -22,7 +22,6 @@ if($resultSet->num_rows != 0) {
 
         $_SESSION['email']   = $email;
         $_SESSION['hhtRole']   = $hhtRole;
-        $_SESSION['password']   = $password;
 
     }
 // Display the results
