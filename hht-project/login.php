@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <title>Humanity Help Team login page</title>
+            <title>Humanity Help Team Intranet login page</title>
             <link rel="stylesheet" type="text/css" href="style.css"
         </head>
         <body>
