@@ -1,5 +1,7 @@
 <?php
-    // Get posted values from the login form (login.php)
+session_start();
+
+// Get posted values from the login form (login.php)
     $email = $_POST['email'];
     $password = $_POST['password'];
     // prevent mysql injection
@@ -22,11 +24,18 @@ if($resultSet->num_rows != 0) {
         $lastName = $rows['last_name'];
         $passoword = $rows['PASSWORD'];
         $hhtRole = $rows['hht_role'];
-        echo "<p>ID: $id<br /> Name: $firstName $lastName <br/> Password : $passoword <br/> Role: $hhtRole </p>";
+        echo "<p>ID: $id<br/> Email : $email <br/> Name: $firstName $lastName <br/> Password : $passoword <br/> Role: $hhtRole </p>";
+
+        $_SESSION['email']   = $email;
+
+        $_SESSION['hhtRole']   = $hhtRole;
+        header("location:welcome.php");
+
     }
 // Display the results
 
 } else {
     echo "No authorised user";
+    header("location:login.php");
 }
 ?>
