@@ -27,15 +27,16 @@ if($resultSet->num_rows != 0) {
         echo "<p>ID: $id<br/> Email : $email <br/> Name: $firstName $lastName <br/> Password : $passoword <br/> Role: $hhtRole </p>";
 
         $_SESSION['email']   = $email;
-
         $_SESSION['hhtRole']   = $hhtRole;
+        $_SESSION['password']   = $passoword;
+
         header("location:welcome.php");
 
     }
 // Display the results
 
 } else {
-    echo "No authorised user";
+    echo "<p>No authorised user</p>";
     header("location:login.php");
 }
 ?>
