@@ -23,6 +23,9 @@ if($resultSet->num_rows != 0) {
     if($result) echo $mysqli->affected_rows.' user has been removed from the database.';
     $mysqli->close();
 
+
+
+
 } else {
     echo " The user $email doesn't exist in the system ";
 }

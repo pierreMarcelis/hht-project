@@ -29,12 +29,12 @@ if($resultSet->num_rows != 0) {
 } else {
 // If not exist insert occurs
 
+    $stmt = $mysqli->prepare("insert into hht_users(first_name, last_name , email , hht_role) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $firstname, $lastname, $email, $hht_role);
+    $stmt->execute();
 
-   // $query = "insert into hht_users(first_name, last_name , email , hht_role) VALUES (?, ?, ?, ?)";
-
-    $query = "insert into hht_users(first_name, last_name , email , hht_role) VALUES ('$firstName', '$lastName', '$email', '$hht_role')";
-   $result= $mysqli->query($query);
-    if($result) echo $mysqli->affected_rows.' user inserted into the database.';
+    echo 'The user has been inserted into the database.';
+    $stmt->close();
     $mysqli->close();
 // INSERT INTO HHT_USERS(first_name, last_name , email , hht_role) VALUES ('Daubresse', 'Olivier', 'oli.daubresse@gmail.com', 'A');
 }

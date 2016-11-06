@@ -13,7 +13,7 @@
         </p>
         <p>
             <label>Password  :</label>
-            <input type="password" id="password" name="password"/>
+            <input type="password" id="password" name="password" />
         </p>
 
         <p>
@@ -28,14 +28,11 @@
 
         <p>
             <label>Role : </label>
-        <div class="uk-button uk-form-select" data-uk-form-select>
             <select name="hht_role">
                 <option value="A">Administrateurs</option>
                 <option value="M"  selected="selected">Membres</option>
                 <option value="V">Visiteurs</option>
-
             </select>
-        </div>
         </p>
         <p>
             <input type="submit" id="btn" value="addUser" />
@@ -46,9 +43,3 @@
 
 </body>
 </html>
-
-  //      $email = $rows['email'];
-   //     $firstName = $rows['first_name'];
-   //     $lastName = $rows['last_name'];
-   //     $passoword = $rows['PASSWORD'];
-     //   $hhtRole = $rows[''];

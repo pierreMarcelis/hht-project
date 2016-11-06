@@ -12,7 +12,6 @@
             <input type="text" id="email" name="email"/>
 			<input type="submit" id="btn" value="delete User" />
         </p>
-       
     </form>
 
 </div>
