@@ -21,15 +21,15 @@ CREATE TABLE HHT_USERS (
     PRIMARY KEY(id)
 );
 
-
 CREATE TABLE HHT_DOCUMENT (
-     id BIGINT NOT NULL AUTO_INCREMENT,
-     title CHAR(30) NOT NULL,
-	 link CHAR(250) NOT NULL,
-	 document_file BLOB NOT NULL,
-	 PRIMARY KEY (id)
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  filename varchar(250) NOT NULL,
+  filetype varchar(30) NOT NULL,
+  filesize int(11) NOT NULL,
+  filedownloadlink CHAR(250) NOT NULL,
+  fileUploadDate TIMESTAMP default CURRENT_TIMESTAMP,
+  PRIMARY KEY(id)
 );
-
 
 INSERT INTO HHT_ROLES(code, description) VALUES('A','Administrateurs');
 INSERT INTO HHT_ROLES(code, description) VALUES('M','Membres');
@@ -89,3 +89,4 @@ INSERT INTO HHT_USERS(first_name, last_name , email , hht_role) VALUES ('Vandewi
 INSERT INTO HHT_USERS(first_name, last_name , email , hht_role) VALUES ('Vosters', 'Aurèle', 'aurele.vosters@gmail.com', 'M');
 INSERT INTO HHT_USERS(first_name, last_name , email , hht_role) VALUES ('Devoet', 'Catherine', 'catherine.devoet@gmail.com', 'A');
 INSERT INTO HHT_USERS(first_name, last_name , email , hht_role) VALUES ('Yvan', 'Jorquera', 'jorqueraivan@yahoo.fr', 'A');
+commit;
