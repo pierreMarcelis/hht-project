@@ -19,13 +19,10 @@
         $email = $rows['email'];
         $firstName = $rows['first_name'];
         $lastName = $rows['last_name'];
-        $passoword = $rows['PASSWORD'];
         $hhtRole = $rows['hht_role'];
-        echo "<p>ID: $id<br/> Email : $email <br/> Name: $firstName $lastName <br/> Password : $passoword <br/> Role: $hhtRole </p>";
 
         $_SESSION['email']   = $email;
         $_SESSION['hhtRole']   = $hhtRole;
-        $_SESSION['password']   = $passoword;
 
         if ($hhtRole == 'A') {
             header("location:userManagement.php");
