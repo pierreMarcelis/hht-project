@@ -13,7 +13,7 @@
 
 <body>
 <div id="menu">
-	
+	<img  src="/hht-project/images/logo.PNG">
 		<nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -62,37 +62,42 @@
 		</nav>
 	</div>
 <div id="addUser">
-    <form action="addUserProcess.php" method="POST">
-        <p>
+
+
+
+
+    <form  class="navbar-form navbar-left" action="addUserProcess.php" method="POST">
+	
+        <div class="form-group">
             <label>Username :</label>
             <input type="text" id="email" name="email"/>
-        </p>
-        <p>
+        </div>
+        <div>
             <label>Password  :</label>
             <input type="password" id="password" name="password" />
-        </p>
+        </div>
 
-        <p>
-            <label>Firstname :  :</label>
+        <div>
+            <label>Firstname :</label>
             <input type="firstName" id="firstName" name="firstName"/>
-        </p>
+        </div>
 
-        <p>
+        <div>
             <label>LastName : </label>
             <input type="lastName" id="lastname" name="lastname"/>
-        </p>
+        </div>
 
-        <p>
+        <div>
             <label>Role : </label>
             <select name="hht_role">
                 <option value="A">Administrateurs</option>
                 <option value="M"  selected="selected">Membres</option>
                 <option value="V">Visiteurs</option>
             </select>
-        </p>
-        <p>
+        </div>
+        <div>
             <input type="submit" id="btn" value="addUser" />
-        </p>
+        </div>
     </form>
 
 </div>

@@ -1,5 +1,5 @@
 <?php
-session_start();
+	session_start();
 
 // Get posted values from the login form (login.php)
     $email = $_POST['email'];
@@ -7,15 +7,12 @@ session_start();
     // prevent mysql injection
     $email = stripcslashes($email);
     $password = stripcslashes($password);
-   // $email = mysqli_real_escape_string($email);
-    // $password = mysqli_real_escape_string($password);
-    //$passwordSecure=md5($password);
-    // connect to the database
+   
     $mysqli = new mysqli('localhost', 'root', '', 'hhtdocuments');
     // Query the database
     $resultSet = $mysqli->query("SELECT * FROM HHT_USERS WHERE email = '$email' AND PASSWORD = '$password'");
 // Count the returned rows
-if($resultSet->num_rows != 0) {
+	if($resultSet->num_rows != 0) {
 // Turn the results into an array
     while($rows = $resultSet->fetch_assoc())  {
         $id = $rows['id'];
@@ -33,10 +30,9 @@ if($resultSet->num_rows != 0) {
         header("location:welcome.php");
 
     }
-// Display the results
 
 } else {
     echo "<p>No authorised user</p>";
-    header("location:login.php");
+    header("location:index.php");
 }
 ?>
