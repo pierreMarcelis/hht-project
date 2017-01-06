@@ -30,12 +30,11 @@
         if ($hhtRole == 'A') {
             header("location:userManagement.php");
         } elseif ($hhtRole == 'M') {
-
+            header("location:documentManagement.php");
         } else {
             echo "<p>No authorised user</p>";
             header("location:index.php");
         }
-        header("location:welcome.php");
 
     }
 
