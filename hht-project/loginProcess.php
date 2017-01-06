@@ -27,6 +27,14 @@
         $_SESSION['hhtRole']   = $hhtRole;
         $_SESSION['password']   = $passoword;
 
+        if ($hhtRole == 'A') {
+            header("location:userManagement.php");
+        } elseif ($hhtRole == 'M') {
+
+        } else {
+            echo "<p>No authorised user</p>";
+            header("location:index.php");
+        }
         header("location:welcome.php");
 
     }
