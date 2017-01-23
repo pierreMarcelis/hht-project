@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('session.php');
 
 $email = $_SESSION['email'];
 $hhtRole = $_SESSION['hhtRole'];
@@ -39,18 +40,24 @@ if($hhtRole != 'A') {
     </div>
 
     <div class="panel panel-default">
+        <div>
+
+            <p>Welcome <?php echo $_SESSION['FIRST_NAME']." ".$_SESSION['LAST_NAME']." : ".$_SESSION['HHT_ROLE']; ?></p>
+            <h2><a href = "logout.php">Sign Out</a></h2>
+        </div>
+
         <div class="panel-heading">
             <h3 class="panel-title">Gestion des utilisateurs</h3>
         </div>
         <div class="panel-body">
             <div class="form-group">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"> <a href="#">Ajouter un utilisateur</a></span>
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"> <a href="addUser.php">Ajouter un utilisateur</a></span>
             </div>
             <!-- <div class="form-group">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"> <a href="#">Supprimer un utilisateur</a></span>
             </div>-->
             <div class="form-group">
-                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"> <a href="#">Lister les utilisateurs</a></span>
+                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"> <a href="listAllUsers.php">Lister les utilisateurs</a></span>
             </div>
             <div class="form-group">
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"> <a href="#">Mettre à jour un utilisateur</a></span>

@@ -26,6 +26,23 @@
             <!--  <div>
                  <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
             </div>-->
+
+            <div>
+                <?php
+                session_start();
+                $message = "";
+                if(isset($_SESSION['FEEDBACK'])) {
+                    $message =  $_SESSION['FEEDBACK'];
+                }
+                ?>
+
+                <div class="form-group has-danger">
+                    <div class="form-control-feedback">Error : <?php $message?></div>
+                </div>
+
+            </div>
         </div>
     </form>
+
+
 </div>
