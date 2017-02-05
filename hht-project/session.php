@@ -2,7 +2,7 @@
 session_start();
 
 $connexion = mysqli_connect('localhost', 'root', '', 'hhtdocuments');
-$myquery = "SELECT * FROM HHT_USERS WHERE email = '".$_SESSION['EMAIL']."' AND PASSWORD = '".$_SESSION['PASSWORD']."'";
+$myquery = "SELECT * FROM HHT_USERS WHERE email = '".$_SESSION['email']."' AND PASSWORD = '".$_SESSION['passsord']."'";
 echo "Query : ".$myquery;
 $resultSet = mysqli_query($connexion,$myquery);
 $rowcount = mysqli_num_rows($resultSet);

@@ -31,8 +31,8 @@
                 <?php
                 session_start();
                 $message = "";
-                if(isset($_SESSION['FEEDBACK'])) {
-                    $message =  $_SESSION['FEEDBACK'];
+                if(isset($_SESSION['feedback'])) {
+                    $message =  $_SESSION['feedback'];
                 }
                 ?>
 

@@ -3,7 +3,7 @@ session_start();
 
 // Get posted values from the login form (login.php)
 $email = $_REQUEST['email'];
-$password = $_REQUEST['password'];
+$password = md5($_REQUEST['password']);
 // prevent mysql injection
 $email = stripcslashes($email);
 $password = stripcslashes($password);
@@ -24,16 +24,16 @@ if($rowcount == 1) {
     $rows = mysqli_fetch_assoc($resultSet);
     $id = $rows['id'];
     $email = $rows['email'];
-    $firstName = $rows['first_name'];
-    $lastName = $rows['last_name'];
-    $passoword = $rows['PASSWORD'];
-    $hhtRole = $rows['hht_role'];
+    $firstName = $rows['firstName'];
+    $lastName = $rows['lastName'];
+    $passoword = $rows['password'];
+    $hhtRole = $rows['hhtRole'];
     echo "<p>Coucou</p>".$hhtRole;
-    $_SESSION['EMAIL']=$email;
-    $_SESSION['HHT_ROLE']=$hhtRole;
-    $_SESSION['PASSWORD']=$passoword;
-    $_SESSION['FIRST_NAME']=$firstName;
-    $_SESSION['LAST_NAME']=$lastName;
+    $_SESSION['email']=$email;
+    $_SESSION['hhtRole']=$hhtRole;
+    $_SESSION['password']=$passoword;
+    $_SESSION['firstName']=$firstName;
+    $_SESSION['lastName']=$lastName;
 
     mysqli_free_result($resultSet);
     mysqli_close($connexion);
@@ -51,7 +51,7 @@ if($rowcount == 1) {
 } else {
     mysqli_free_result($resultSet);
     mysqli_close($connexion);
-    $_SESSION['FEEDBACK'] = 'No authorised user';
+    $_SESSION['feedback'] = 'No authorised user';
     header("location:index.php");
 }
 ?>
