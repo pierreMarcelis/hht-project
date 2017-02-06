@@ -12,6 +12,7 @@
     <script>
 
         $("#user_grid").bootgrid({
+            echo "TOTO"
             ajax: true,
             post: function ()
             {
