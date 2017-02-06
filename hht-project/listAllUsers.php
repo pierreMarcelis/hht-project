@@ -1,59 +1,47 @@
-<?php
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-// $handle = new mysqli('localhost', 'root', '', 'hhtdocuments');
-// $counter = 0;
-//$query = "SELECT ID, EMAIL, FIRST_NAME, LAST_NAME, PASSWORD, HHT_ROLE FROM HHT_USERS ORDER BY id";
-// $result = mysqli_query($handle, $query);
-// $row = mysqli_fetch_array($result);
-// ?>
-<div class="table-responsive">
-    <form name="user<?php print $counter; ?>">
-        <table lass="table table-bordered">
-            <tr>
-                <th>Id</th>
-                <th>email</th>
-                <th>password</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Role</th>
-            </tr>
+	<title>Humanity Help Team Intranet</title>
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">;
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="./jquery-bootgrid-master/dist/jquery.bootgrid.min.js"></script>
+    <script>
 
-            //    <?php
+        $("#user_grid").bootgrid({
+            ajax: true,
+            post: function ()
+            {
+                /* To accumulate custom parameter with the request object */
+                return {
+                    id: "b0df282a-0d67-40e5-8558-c9e93b7befed"
+                };
+            },
+            url: "userResponse.php",
+            formatters: {
 
-            //  while ($row != null) {
-            //      $counter = $counter +1;
-            //  $id = $row['ID'];
-            //  $mail = $row['EMAIL'];
-            //  $nom = $row['FIRST_NAME'];
-            // $prenom = $row['LAST_NAME'];
-            //$crypt = new Crypter("Whisky-Coca");
-            //$pwddecrypt = $crypt->decrypt($row[4]);
-            //$pwddecrypt = $row['PASSWORD'];
-            // $role = $row['HHT_ROLE'];
-            //
-            //   A l'intérieur de la boucle PHP, je mets du code HTML pour afficher les personnes
-            //
+            }
+        });
+        </script>
+    <body>
+		<div>
 
-                // echo '<tr>';
-                //    echo '<td>'.$id.'</td>';
-                //    <td>$email</td>
-                // <td>$password</td>
-                // <td>$nom</td >
-                // <td>$prenom</td >
-                //<td>$role</td >
-                //  </tr >
-                //$row = mysqli_fetch_array($result);
-            // }
-            //echo $counter;
-            // ?>
-            // </table>
-        //</form>
-
-
-    //  mysqli_free_result($result);
-    //  mysqli_close($handle);
-
-
-    //</div>
+            <table id="user_grid" class="table table-condensed table-hover table-striped" width="100%" cellspacing="0" data-toggle="bootgrid">
+                <thead>
+                <tr>
+                    <th data-column-id="id" data-type="numeric">Id</th>
+                    <th data-column-id="email">Email</th>
+                    <th data-column-id="firstName">Nom</th>
+                    <th data-column-id="lastName">Prénom</th>
+                    <th data-column-id="hhtRole">Role</th>
+                </tr>
+                </thead>
+            </table>
+		</div>
+	</body>
+</head>
+</html>
 
