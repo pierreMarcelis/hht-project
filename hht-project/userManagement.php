@@ -43,7 +43,7 @@ if($hhtRole != 'A') {
     <div class="panel panel-default">
         <div>
 
-            <p>Welcome <?php echo $_SESSION['FIRST_NAME']." ".$_SESSION['LAST_NAME']." : ".$_SESSION['HHT_ROLE']; ?></p>
+            <p>Welcome <?php echo $_SESSION['firstName']." ".$_SESSION['lastName']." : ".$_SESSION['hhtRole']; ?></p>
             <h2><a href = "logout.php">Sign Out</a></h2>
         </div>
 
