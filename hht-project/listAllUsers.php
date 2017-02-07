@@ -5,7 +5,7 @@
 ##  *** define a relative (virtual) path to datagrid.class.php file
 ##  *** directory (relatively to the current file)
 ##  *** RELATIVE PATH ONLY ***
-define ("DATAGRID_DIR", "datagrid/");
+define ("DATAGRID_DIR", "./php_datagrid_428/");
 require_once(DATAGRID_DIR."datagrid.class.php");
 
 ##  *** creating variables that we need for database connection

@@ -7,18 +7,18 @@ $password = md5($_REQUEST['password']);
 // prevent mysql injection
 $email = stripcslashes($email);
 $password = stripcslashes($password);
+
 // $email = mysqli_real_escape_string($email);
 // $password = mysqli_real_escape_string($password);
 //$passwordSecure=md5($password);
 // connect to the database
 $connexion = mysqli_connect('localhost', 'root', '', 'hhtdocuments');
 // Query the database
-$myquery = "SELECT * FROM HHT_USERS WHERE email = '".$email."' AND PASSWORD = '".$password."'";
+$myquery = "SELECT * FROM HHT_USERS WHERE email = '".$email."' AND PASSWORD = '".md5($password)."'";
 $resultSet = mysqli_query($connexion,$myquery);
 var_dump($resultSet);
 $rowcount = mysqli_num_rows($resultSet);
 
-echo "<p>Coucou</p>".$rowcount;
 if($rowcount == 1) {
 // Turn the results into an array
     $rows = mysqli_fetch_assoc($resultSet);
@@ -43,8 +43,8 @@ if($rowcount == 1) {
     } elseif ($hhtRole == 'M') {
         header("location:documentManagement.php");
     } else {
-        $_SESSION['FEEDBACK'] = 'No authorised user';
-        $_SESSION['LAST_NAME']   = $lastName;
+        $_SESSION['feedback'] = 'No authorised user';
+        $_SESSION['lastName']   = $lastName;
         header("location:index.php");
     }
 
