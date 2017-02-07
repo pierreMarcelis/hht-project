@@ -9,7 +9,7 @@
     <form action="deleteUserProcess.php" method="POST">
         <p>
             <label>Username :</label>
-            <input type="text" id="email" name="email"/>
+            <input type="text" id="email" name="emailToRemove"/>
 			<input type="submit" id="btn" value="delete User" />
         </p>
     </form>

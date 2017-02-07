@@ -3,7 +3,7 @@ session_start();
 // Security checks : get the connected user check admin role
 
 // Get posted values from the adding user form (addUser.php)
-$email = $_POST['email'];
+$email = $_POST['emailToRemove'];
 
 // prevent mysql injection
 $email = stripcslashes($email);
