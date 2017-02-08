@@ -1,5 +1,4 @@
 <?php
-echo "<p>Admin</p>";
 session_start();
 
 $email = $_SESSION['email'];
