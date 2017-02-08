@@ -18,7 +18,7 @@ $myquery = "SELECT * FROM HHT_USERS WHERE email = '".$email."' AND PASSWORD = '"
 $resultSet = mysqli_query($connexion,$myquery);
 var_dump($resultSet);
 $rowcount = mysqli_num_rows($resultSet);
-echo "".$rowcount;
+echo "<p>$rowcount</p>";
 if($rowcount == 1) {
 // Turn the results into an array
     $rows = mysqli_fetch_assoc($resultSet);
@@ -35,13 +35,10 @@ if($rowcount == 1) {
     mysqli_close($connexion);
 
     if ($hhtRole == 'A') {
-        echo "<p>Admin1</p>";
         header("location:userManagement.php");
     } elseif ($hhtRole == 'M') {
-        echo "<p>Member</p>";
         header("location:documentManagement.php");
     } else {
-        echo "<p>Un authorised</p>";
         $_SESSION['feedback'] = 'No authorised user';
         $_SESSION['lastName']   = $lastName;
         header("location:index.php");
