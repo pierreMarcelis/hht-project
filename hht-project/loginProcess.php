@@ -18,7 +18,6 @@ $myquery = "SELECT * FROM HHT_USERS WHERE email = '".$email."' AND PASSWORD = '"
 $resultSet = mysqli_query($connexion,$myquery);
 var_dump($resultSet);
 $rowcount = mysqli_num_rows($resultSet);
-echo "<p>$rowcount</p>";
 if($rowcount == 1) {
 // Turn the results into an array
     $rows = mysqli_fetch_assoc($resultSet);

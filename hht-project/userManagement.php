@@ -31,15 +31,11 @@ if($hhtRole != 'A') {
 
 
     <div class="container-fluid">
-        <div align="center">
-            <img  src="/hht-project/images/logo.PNG"/>
-        </div>
+
 
         <div class="panel panel-default">
             <div>
-
-                <p>Welcome <?php echo $_SESSION['firstName']." ".$_SESSION['lastName']." : ".$_SESSION['hhtRole']; ?></p>
-                <h2><a href = "logout.php">Se délogger</a></h2>
+                <?php include 'header.php';?>
             </div>
 
             <div class="panel-heading">

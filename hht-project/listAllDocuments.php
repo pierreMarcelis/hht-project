@@ -1,4 +1,9 @@
 <?php
+session_start();
+include 'header.php';
+
+
+
 // connect to the database
 $mysqli = new mysqli('localhost', 'root', '', 'hhtdocuments');
 // Query the database

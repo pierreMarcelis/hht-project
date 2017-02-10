@@ -9,6 +9,12 @@
 
 
 <body>
+<?php
+session_start();
+?>
+<div>
+    <?php include 'header.php';?>
+</div>
 
 <?php
 
@@ -57,7 +63,7 @@ if($result = mysqli_query($connexion, $sql)){
             echo '<form id="formDelete"  action="./deleteUserProcess.php">';
             echo '<div class="form-group">';
             echo '<input type="hidden" name="emailToRemove" value='.$row['email'].'/>';
-	        echo '<input class="btn btn-default" type="button" value="Delete"/>';
+	        echo '<input class="btn btn-default" type="submit" value="Supprimer" ></input>';
             echo '</div>';
             echo '</form>';
              echo '</td>';
