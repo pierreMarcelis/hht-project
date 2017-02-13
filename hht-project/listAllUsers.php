@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Humanity Help Team Intranet : Liste des utilisateurs</title>
 
-    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">;
-    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="./jquery/jquery-3.1.1.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" />
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js" ></script>
+    <script src="./jquery/jquery-3.1.1.min.js" ></script>
 
     <script type="text/javascript">
         function deleteUser() {
@@ -28,7 +28,6 @@ session_start();
 <div>
     <?php include 'header.php';?>
 </div>
-
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -80,7 +79,7 @@ if($result = mysqli_query($connexion, $sql)){
         echo "<th>Nom</th>";
         echo "<th>Role</th>";
         echo "<th>MAJ</th>";
-        echo "<th>DELETE</th>";
+        echo "<th>Suppression</th>";
         echo "</tr>";
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
@@ -95,7 +94,7 @@ if($result = mysqli_query($connexion, $sql)){
             echo '<div class="form-group">';
             echo '<input type="hidden" name="emailToRemove" value='.$row['email'].'/>';
 	       // echo '<input id="deleteButton" class="btn btn-default" type="submit" value="Supprimer" ></input>';
-            echo '<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" onclick="displayModal()">Supprimer</button>';
+            echo '<button type="button" class="btn btn-primary btn-lg" onclick="displayModal()">Supprimer</button>';
             echo '</div>';
             echo '</form>';
              echo '</td>';
