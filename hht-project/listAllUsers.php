@@ -11,7 +11,7 @@
 
     <script type="text/javascript">
         function deleteUser() {
-            document.getElementById('formDelete').submit();
+            $('#formDelete').submit();
         }
 
 
