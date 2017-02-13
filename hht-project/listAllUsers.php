@@ -4,11 +4,23 @@
     <meta charset="UTF-8">
     <title>Humanity Help Team Intranet : Liste des utilisateurs</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">;
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">;
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="./jquery/jquery-3.1.1.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        function deleteUser() {
+            document.getElementById('formDelete').submit();
+        }
 
 
+        function displayModal() {
+            $('#myModal').modal();
+        }
+
+
+    </script>
 <body>
 <?php
 session_start();
@@ -17,6 +29,24 @@ session_start();
     <?php include 'header.php';?>
 </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <button onclick="deleteUser()" type="button" class="btn btn-primary">Supprimer utilisateur</button>
+            </div>
+        </div>
+    </div>
+</div>
 <?php
 
 ##  *** creating variables that we need for database connection
@@ -61,10 +91,11 @@ if($result = mysqli_query($connexion, $sql)){
             echo "<td>" . $row['hhtRole'] . "</td>";
             echo '<td>update</td>';
             echo "<td>";
-            echo '<form id="formDelete"  action="./deleteUserProcess.php">';
+            echo '<form id="formDelete"  action="./deleteUserProcess.php"  method="POST">';
             echo '<div class="form-group">';
             echo '<input type="hidden" name="emailToRemove" value='.$row['email'].'/>';
-	        echo '<input class="btn btn-default" type="submit" value="Supprimer" ></input>';
+	       // echo '<input id="deleteButton" class="btn btn-default" type="submit" value="Supprimer" ></input>';
+            echo '<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" onclick="displayModal()">Supprimer</button>';
             echo '</div>';
             echo '</form>';
              echo '</td>';
