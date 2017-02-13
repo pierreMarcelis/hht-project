@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Humanity Help Team Intranet : Liste des utilisateurs</title>
-
+    <script src="./jquery/jquery-3.1.1.min.js" ></script>
     <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" />
-    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js" ></script>
-    <script src="./jquery/jquery-3.1.1.min.js" ></script>
+    <script  type="text/javascript"  src="./bootstrap-3.3.7-dist/js/bootstrap.min.js" ></script>
+
 
     <script type="text/javascript">
         function deleteUser() {
@@ -21,6 +21,7 @@
 
 
     </script>
+    </head>
 <body>
 <?php
 session_start();
