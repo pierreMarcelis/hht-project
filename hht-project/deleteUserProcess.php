@@ -10,7 +10,9 @@
 
     // sql to delete a record
     $sql = "DELETE FROM hht_users WHERE email = '$email'";
-
+?>
+<script>alert(<?php $sql ?>)</script>
+<?php
     if (mysqli_query($connexion, $sql)) {
         echo "Record deleted successfully";
     } else {
