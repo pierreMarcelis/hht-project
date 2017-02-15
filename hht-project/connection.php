@@ -8,8 +8,9 @@ $dbName = "hhtdocuments";
 $connexion = mysqli_connect($dbHost, $dbUser, $dbPassword, $dbName);
 
 // Check connection
-if($connexion === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
+// Check connection
+if (!$connexion) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 

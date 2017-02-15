@@ -1,22 +1,23 @@
 <?php
-session_start();
+    session_start();
+    include  "connection.php";
+    // Get posted values from the adding user form (addUser.php)
+    $email = $_REQUEST['emailToRemove'];
 
-$email = $_REQUEST['emailToRemove'];
-// Create connection
-$conn = new mysqli('localhost', root, '', 'hhtdocuments');
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    // prevent mysql injection
+    $email = stripcslashes($email);
 
-// sql to delete a record
-$sql = "DELETE FROM hht_users WHERE email = '$email'";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Record deleted successfully";
-} else {
-    echo "Error deleting record: " . $conn->error;
-}
-$conn->close();
-header("location:listAllUsers.php");
+    // sql to delete a record
+    $sql = "DELETE FROM hht_users WHERE email = '$email'";
+
+    if (mysqli_query($connexion, $sql)) {
+        echo "Record deleted successfully";
+    } else {
+        echo "Error deleting record: " . mysqli_error($connexion);
+    }
+
+    mysqli_close($connexion);
+    header("location:listAllUsers.php");
 ?>
+
