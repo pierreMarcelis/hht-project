@@ -1,5 +1,6 @@
 <?php
 session_start();
+include  "connection.php";
 // Security checks : get the connected user check admin role
 
 // Get posted values from the adding user form (addUser.php)
@@ -18,10 +19,10 @@ $lastName = stripcslashes($lastName);
 $hht_role = stripcslashes($hht_role);
 
 // connect to the database
-$mysqli = new mysqli('localhost', 'root', '', 'hhtdocuments');
+//$mysqli = new mysqli('localhost', 'root', '', 'hhtdocuments');
 // Check If user exist
 
-$resultSet = $mysqli->query("SELECT * FROM HHT_USERS WHERE email = '$email' AND PASSWORD = '$password'");
+$resultSet = $connexion->query("SELECT * FROM HHT_USERS WHERE email = '$email' AND PASSWORD = '$password'");
 // Count the returned rows
 if($resultSet->num_rows != 0) {
     // the user exists
@@ -29,7 +30,7 @@ if($resultSet->num_rows != 0) {
 } else {
 // If not exist insert occurs
 
-    $stmt = $mysqli->prepare("insert into hht_users(first_name, last_name , email , hht_role) VALUES (?, ?, ?, ?)");
+    $stmt = $connexion->prepare("insert into hht_users(first_name, last_name , email , hht_role) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $firstname, $lastname, $email, $hht_role);
     $stmt->execute();
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include  "connection.php";
 // Get posted values from the login form (login.php)
 $email = $_REQUEST['email'];
 $password = $_REQUEST['password'];
@@ -8,11 +8,6 @@ $password = $_REQUEST['password'];
 $email = stripcslashes($email);
 $password = stripcslashes($password);
 
-// $email = mysqli_real_escape_string($email);
-// $password = mysqli_real_escape_string($password);
-//$passwordSecure=md5($password);
-// connect to the database
-$connexion = mysqli_connect('localhost', 'root', '', 'hhtdocuments');
 // Query the database
 $myquery = "SELECT * FROM HHT_USERS WHERE email = '".$email."' AND PASSWORD = '".md5($password)."'";
 $resultSet = mysqli_query($connexion,$myquery);

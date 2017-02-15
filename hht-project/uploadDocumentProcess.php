@@ -1,7 +1,5 @@
-
 <?php
 session_start();
-echo "coucou1";
  if(isset($_POST["btn-upload"])) {   
 	   echo "coucou2";
 	$file = rand(1000,100000)."-".$_FILES['file']['name'];
@@ -29,7 +27,7 @@ echo "coucou1";
 		$stmt->bind_param("ssss", $final_file, $file_type, $file_size, $folder.$final_file);
 		$stmt->execute();
 		echo 'The user has been inserted into the database.';
-		echo 'Upload effectué avec succès pour le fichier '.$fichier['name'] . "<br/>";
+		echo 'Upload effectuï¿½ avec succï¿½s pour le fichier '.$fichier['name'] . "<br/>";
 		$stmt->close();
 		$mysqli->close();
 		 header("location:uploadDocument.php?success");
