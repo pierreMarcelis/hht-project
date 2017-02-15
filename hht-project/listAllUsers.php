@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" />
     <script  type="text/javascript"  src="./bootstrap-3.3.7-dist/js/bootstrap.min.js" ></script>
 
-
     <script type="text/javascript">
         function deleteUser() {
             $('#formDelete').submit();
         }
 
 
-        function displayModal() {
+        function displayModal(emailToDelete) {
+            alert(emailToDelete);
+            $("#emailToRemove").val(emailToDelete);
             $('#myModal').modal();
         }
 
@@ -36,9 +37,20 @@ session_start();
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <h4 class="modal-title" id="myModalLabel">Suppression utilisateur</h4>
             </div>
             <div class="modal-body">
+
+
+                <form id="formDelete"  action="./deleteUserProcess.php"  method="POST">
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="emailToRemove" aria-describedby="emailHelp" name="emailToRemove"/>
+                        </div>
+
+                </form>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
@@ -91,17 +103,14 @@ if($result = mysqli_query($connexion, $sql)){
             echo "<td>" . $row['hhtRole'] . "</td>";
             echo '<td>update</td>';
             echo "<td>";
-            echo '<form id="formDelete"  action="./deleteUserProcess.php"  method="POST">';
-            echo '<div class="form-group">';
-            echo '<input type="hidden" name="emailToRemove" value='.$row['email'].'/>';
-	       // echo '<input id="deleteButton" class="btn btn-default" type="submit" value="Supprimer" ></input>';
-            echo '<button type="button" class="btn btn-primary btn-lg" onclick="displayModal()">Supprimer</button>';
-            echo '</div>';
-            echo '</form>';
-             echo '</td>';
+            $mailR = $row['email'];
+            echo '<input id="emailTempId" type="hidden" name="emailTemp" value="$mailR" />';
+            echo '<button type="button" class="btn btn-primary btn-lg" onclick=displayModal(\'$mailR\')>Supprimer</button>';
+            echo '</td>';
             echo '</tr>';
        }
-       echo '</table>';
+
+         echo '</table>';
                  // Close result set
                  mysqli_free_result($result);
              } else{
