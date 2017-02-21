@@ -10,6 +10,8 @@
 
     <script type="text/javascript">
         function deleteUser() {
+
+            alert( $("#emailToRemove").val());
             $('#formDelete').submit();
         }
 
@@ -36,24 +38,23 @@ session_start();
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Suppression utilisateur</h4>
             </div>
-            <div class="modal-body">
 
 
                 <form id="formDelete"  action="./deleteUserProcess.php"  method="POST">
+                    <div class="modal-body">
 
                     <div class="form-group">
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                         <label for="exampleInputEmail1">Etes vous sure de supprimer l'utilisateur : </label>
                         <input type="email"   disabled="disabled" class="form-control" id="emailToRemove" aria-describedby="emailHelp" name="emailToRemove"/>
                     </div>
-
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                        <button onclick="deleteUser()" type="button" class="btn btn-primary">Supprimer utilisateur</button>
+                    </div>
                 </form>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                <button onclick="deleteUser()" type="button" class="btn btn-primary">Supprimer utilisateur</button>
-            </div>
         </div>
     </div>
 </div>
