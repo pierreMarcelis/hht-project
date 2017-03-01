@@ -10,24 +10,26 @@
 
     <script type="text/javascript">
         function deleteUser() {
-
-            alert( $("#emailToRemove").val());
+            alert($("#emailToRemove").val());
             $('#formDelete').submit();
         }
 
 
-        function displayModal(emailToDelete) {
-            $("#emailToRemove").val(emailToDelete);
+        function displayModal(emailToRemove) {
+            $("#emailToRemove").val(emailToRemove);
             $('#myModal').modal();
         }
     </script>
 </head>
 <body>
-<?php
-session_start();
-?>
+
 <div>
-    <?php include 'header.php';?>
+
+
+    <?php
+        include 'securityAccessCheck.php';
+        include 'header.php';
+    ?>
 </div>
 
 <!-- Modal -->
@@ -51,7 +53,7 @@ session_start();
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                        <button onclick="deleteUser()" type="button" class="btn btn-primary">Supprimer utilisateur</button>
+                        <button onclick="deleteUser()" type="submit" class="btn btn-primary">Supprimer utilisateur</button>
                     </div>
                 </form>
 

@@ -1,5 +1,7 @@
 <?php
 session_start();
+include 'securityAccessCheck.php';
+
  if(isset($_POST["btn-upload"])) {   
 	   echo "coucou2";
 	$file = rand(1000,100000)."-".$_FILES['file']['name'];

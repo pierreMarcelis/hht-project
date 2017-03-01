@@ -3,7 +3,6 @@
         <div align="left">
             <img  src="/hht-project/images/logo.PNG"/>
         </div>
-
         <div align="right">
            <div class="btn-group">
                 <h3>

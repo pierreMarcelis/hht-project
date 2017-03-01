@@ -1,11 +1,8 @@
 <?php
-session_start();
-include  "connection.php";
-$email = $_REQUEST['emailToRemove'];
-?>
+include 'securityAccessCheck.php';
 
-<script>alert(<?php$email ?>)</script>
-<?php
+$email = $_POST['emailToRemove'];
+
 // Security checks : get the connected user check admin role
 
 // Get posted values from the adding user form (addUser.php)
