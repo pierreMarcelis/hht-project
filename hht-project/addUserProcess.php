@@ -1,7 +1,6 @@
 <?php
-session_start();
 include  "connection.php";
-// Security checks : get the connected user check admin role
+include  "securityAccessCheck.php";
 
 // Get posted values from the adding user form (addUser.php)
 $email = $_POST['email'];
