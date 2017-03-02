@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                         <label for="exampleInputEmail1">Etes vous sure de supprimer l'utilisateur : </label>
-                        <input type="email"   disabled="disabled" class="form-control" id="emailToRemove" aria-describedby="emailHelp" name="emailToRemove"/>
+                        <input type="email"  readonly="readonly" class="form-control" id="emailToRemove" aria-describedby="emailHelp" name="emailToRemove"/>
                     </div>
                     </div>
                     <div class="modal-footer">

@@ -1,17 +1,7 @@
 <?php
-    session_start();
-    $email = $_SESSION['email'];
-    $hhtRole = $_SESSION['hhtRole'];
+session_start();
 
-    if(!isset($email)) {
-        header("location:index.php");
-    }
-
-    if(!isset($hhtRole)) {
-        header("location:index.php");
-    }
-
-    if($hhtRole != 'A') {
-        header("location:index.php");
-    }
+if(!isset($_SESSION['email']) || !isset($_SESSION['hhtRole']) || $_SESSION['hhtRole'] !='A') {
+    header("location:index.php");
+}
 ?>
