@@ -10,15 +10,32 @@
 
     <script type="text/javascript">
         function deleteUser() {
-            alert($("#emailToRemove").val());
             $('#formDelete').submit();
         }
 
-
-        function displayModal(emailToRemove) {
+        function displayModalDelete(emailToRemove) {
             $("#emailToRemove").val(emailToRemove);
-            $('#myModal').modal();
+            $('#deleteModal').modal();
         }
+
+
+        function updateUser() {
+            $('#updateUserForm').submit();
+        }
+
+        function displayModalUpdate(id, emailToUpdate, firstNameToUpdate, lastNameToUpdate, hhtRoleToUpdate) {
+            alert(id)
+            var result;
+            result = id.split(",")
+            result[i]
+            $("#idUser").val(result[0]);
+            $("#emailToUpdate").val(result[1]);
+            $("#firstNameToUpdate").val(result[2]);
+            $("#lastnameToUpdate").val(result[3]);
+            $("#roleToUpdate").val(result[4]);
+            $('#updateModal').modal();
+        }
+
     </script>
 </head>
 <body>
@@ -29,11 +46,13 @@
     <?php
         include 'securityAccessCheck.php';
         include 'header.php';
+    ##  *** creating variables that we need for database connection
+    include  "connection.php";
     ?>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- Modal Delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -56,14 +75,65 @@
                         <button onclick="deleteUser()" type="submit" class="btn btn-primary">Supprimer utilisateur</button>
                     </div>
                 </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Update -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Mettre à jour un utilisateur</h4>
+            </div>
+
+            <div id="div-update-user-form">
+
+                <form id="updateUserForm" action="updateUser.php" method="POST">
+                    <div >
+                        <div class="form-group">
+                            <label id="idUserLabel">idUser</label>
+                            <input type="text" class="form-control" readonly="readonly" id="idUser">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email : </label>
+                            <input type="email" class="form-control" id="emailToUpdate" placeholder="Email">
+                        </div>
+
+                        <div>
+                            <label>Prénom :</label>
+                            <input type="firstName" id="firstNameToUpdate" name="firstNameToUpdate"/>
+                        </div>
+
+                        <div>
+                            <label>Nom : </label>
+                            <input type="lastName" id="lastnameToUpdate" name="lastnameToUpdate"/>
+                        </div>
+                        <div>
+                            <label>Role : </label>
+                            <select name="roleToUpdate">
+                                <option value="A">Administrateurs</option>
+                                <option value="M">Membres</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                        <button onclick="updateUser()" type="submit" class="btn btn-primary">Mettre à jour utilisateur</button>
+                    </div>
+                </form>
+            </div>
 
         </div>
     </div>
 </div>
-<?php
 
-##  *** creating variables that we need for database connection
-include  "connection.php";
+
+<?php
 
 $sql = "SELECT * FROM HHT_USERS  ORDER  by id DESC";
 
@@ -77,7 +147,7 @@ if($result = mysqli_query($connexion, $sql)){
                 <th>Prénom</th>
                 <th>Nom</th>
                 <th>Role</th>
-                <th>MAJ</th>
+                <th>Détails</th>
                 <th>Suppression</th>
             </tr>
             <?php
@@ -89,8 +159,8 @@ if($result = mysqli_query($connexion, $sql)){
                     <td><?php echo $row['firstName'];?></td>
                     <td><?php echo $row['lastName'];?></td>
                     <td><?php echo $row['hhtRole'];?></td>
-                    <td>update</td>
-                    <td><?php echo "<button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"displayModal('".$row['email']."')\">Supprimer</button>";?></td>
+                    <td><?php echo "<button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"displayModalUpdate('". $row['id'].", ".$row['email'].", ".$row['firstName'].", ".$row['lastName'].", ".$row['hhtRole']."')\">Détails</button>";?></td>
+                    <td><?php echo "<button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"displayModalDelete('".$row['email']."')\">Supprimer</button>";?></td>
                 </tr>
                 <?php
             }	// while
