@@ -11,7 +11,7 @@ include  "securityAccessCheck.php";
 // Get posted values from the adding user form (addUser.php)
 $email = $_POST['emailToDetail'];
 ?>
-<p><?php $email?><ZZZ/p>
+<p><?php $email?></p>
 
 
 
