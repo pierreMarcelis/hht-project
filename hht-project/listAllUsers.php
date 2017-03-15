@@ -18,7 +18,7 @@
             $('#deleteModal').modal();
         }
 
-        function displayModalUpdate(emailToUpdate) {
+        function displayDetails(emailToUpdate) {
             $("#emailToDetail").val(emailToUpdate);
             $('#formDetails').submit();
         }
@@ -97,7 +97,7 @@ if($result = mysqli_query($connexion, $sql)){
                     <td><?php echo $row['firstName'];?></td>
                     <td><?php echo $row['lastName'];?></td>
                     <td><?php echo $row['hhtRole'];?></td>
-                    <td><?php echo "<button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"displayModalUpdate('".$row['email']."')\">Détails</button>";?></td>
+                    <td><?php echo "<button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"displayDetails('".$row['email']."')\">Détails</button>";?></td>
                     <td><?php echo "<button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"displayModalDelete('".$row['email']."')\">Supprimer</button>";?></td>
                 </tr>
                 <?php
